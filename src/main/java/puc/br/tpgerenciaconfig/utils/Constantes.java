@@ -18,4 +18,10 @@ public class Constantes {
     public final static String entre_30_34__99 = "Obesidade I";
     public final static String entre_35__39__99 = "Obesidade II (severa)";
     public final static String acima_40 = "Obesidade III (mórbida)";
+
+    /* API */
+
+    public final static String paciente_ja_inserido = "Paciente já inserido anteriormente";
+
+    public final static String sucesso = "Sucesso";
 }
