@@ -22,6 +22,6 @@ public class Constantes {
     /* API */
 
     public final static String paciente_ja_inserido = "Paciente já inserido anteriormente";
-
+    public final static String paciente_excluido = "Paciente excluído com sucesso";
     public final static String sucesso = "Sucesso";
 }

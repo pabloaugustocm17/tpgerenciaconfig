@@ -50,8 +50,8 @@ public class Paciente {
         this.altura = altura;
         this.peso = peso;
         this.cpf = cpf;
-        this.imc = _calcularIMC();
-        this.idade = _calcularIdade();
+        _calcularIMC();
+        _calcularIdade();
     }
 
     public Double _obterPesoIdeal(){
@@ -62,12 +62,12 @@ public class Paciente {
             );
     }
 
-    public Double _calcularIMC(){
-        return this.peso / (this.altura * this.altura);
+    public void _calcularIMC(){
+        this.imc = this.peso / (this.altura * this.altura);
     }
 
-    public Byte _calcularIdade(){
-        return (byte) this.nascimento.compareTo(LocalDate.now());
+    public void _calcularIdade(){
+        this.idade = (byte) this.nascimento.compareTo(LocalDate.now());
     }
 
     public String _obterSituacaoIMC(){

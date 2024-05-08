@@ -2,6 +2,7 @@ package puc.br.tpgerenciaconfig.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import puc.br.tpgerenciaconfig.model.dto.PacienteEditDTO;
 import puc.br.tpgerenciaconfig.model.dto.PacienteInsertDTO;
 import puc.br.tpgerenciaconfig.model.response.ResponseBuilder;
 import puc.br.tpgerenciaconfig.services.PacienteService;
@@ -36,13 +37,17 @@ public class PacienteController {
     }
 
     @PutMapping
-    public ResponseEntity<?> _editaPaciente(){
-        return null;
+    public ResponseEntity<?> _editaPaciente(
+            @RequestBody PacienteEditDTO dto
+    ){
+        return SERVICE._editaPaciente(dto);
     }
 
-    @DeleteMapping
-    public ResponseEntity<?> _excluiPaciente(){
-        return null;
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> _excluiPaciente(
+            @PathVariable UUID id
+    ){
+        return SERVICE._excluiPaciente(id);
     }
 
     @GetMapping("all")

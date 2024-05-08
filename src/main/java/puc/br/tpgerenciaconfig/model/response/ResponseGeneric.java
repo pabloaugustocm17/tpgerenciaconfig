@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseError {
+public class ResponseGeneric {
 
     private String mensagem;
 }

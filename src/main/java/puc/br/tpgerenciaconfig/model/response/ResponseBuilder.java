@@ -19,4 +19,8 @@ public class ResponseBuilder {
     public static ResponseEntity<?> _criaResposta201(Object corpo){
         return ResponseEntity.status(200).body(corpo);
     }
+
+    public static ResponseEntity<?> _criaResposta202(Object corpo){
+        return ResponseEntity.status(202).body(corpo);
+    }
 }
