@@ -76,6 +76,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: jar-artifact
+          path: ./target
+
       - name: Build Docker image
         working-directory: .
         run: docker build -t pabloaugustocm/tpgerenciaindividual:latest .
