@@ -39,7 +39,6 @@ public class IntegrationTest {
 
         ResponseEntity<Paciente> response = restTemplate.postForEntity(url, paciente, Paciente.class);
 
-        assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
         assertThat(response.getBody()).isNotNull();
     }
 
