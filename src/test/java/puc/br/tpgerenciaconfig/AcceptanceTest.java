@@ -10,11 +10,11 @@ import puc.br.tpgerenciaconfig.model.Paciente;
 import puc.br.tpgerenciaconfig.model.dto.PacienteInsertDTO;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class IntegrationTest {
+public class AcceptanceTest {
 
     @LocalServerPort
     private int port;
@@ -23,7 +23,8 @@ public class IntegrationTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void _criaUsuarioTeste() {
+    void _controllerTeste() {
+
 
         PacienteInsertDTO paciente = new PacienteInsertDTO(
                 "Pablo",
@@ -36,11 +37,19 @@ public class IntegrationTest {
         );
 
         String url = "http://localhost:" + port + "/api/v1/Paciente/";
+        String url_2 = "http://localhost:" + port + "/api/v1/Paciente/all";
 
         ResponseEntity<Paciente> response = restTemplate.postForEntity(url, paciente, Paciente.class);
 
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
-        assertThat(response.getBody()).isNotNull();
+
+        ResponseEntity<List> getResponse = restTemplate.getForEntity(url_2, List.class);
+
+        assertThat(getResponse.getStatusCode().is2xxSuccessful()).isTrue();
+
+        List<Paciente> users = getResponse.getBody();
+
+        assertThat(users).isNotEmpty();
     }
 
 }
